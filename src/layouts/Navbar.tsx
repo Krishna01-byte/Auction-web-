@@ -9,6 +9,9 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
+const navItemClass =
+    "w-full block px-3 py-2 rounded-lg text-sm text-foreground transition-colors hover:bg-amber-50 hover:text-amber-700 font-medium";
+
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -38,11 +41,25 @@ const Navbar = () => {
                             <DropdownMenuTrigger className="flex items-center gap-1 hover:text-foreground outline-none">
                                 Auctions <ChevronDown className="h-3 w-3" />
                             </DropdownMenuTrigger>
-                            <DropdownMenuContent>
-                                <DropdownMenuItem><Link to="/auctions?status=upcoming">Upcoming</Link></DropdownMenuItem>
-                                <DropdownMenuItem><Link to="/auctions?status=live">Live</Link></DropdownMenuItem>
-                                <DropdownMenuItem><Link to="/auctions?status=past">Past</Link></DropdownMenuItem>
-                                <DropdownMenuItem><Link to="/results">Results</Link></DropdownMenuItem>
+                            <DropdownMenuContent className="min-w-[10rem]">
+                                <DropdownMenuItem asChild>
+                                    <Link to="/auctions?status=upcoming" className={navItemClass}>Upcoming</Link>
+                                </DropdownMenuItem>
+                                <DropdownMenuItem asChild>
+                                    <Link to="/auctions?status=live" className={navItemClass}>Live</Link>
+                                </DropdownMenuItem>
+                                <DropdownMenuItem asChild>
+                                    <Link to="/auctions?status=past" className={navItemClass}>Past</Link>
+                                </DropdownMenuItem>
+                                <DropdownMenuItem asChild>
+                                    <Link to="/results" className={navItemClass}>Results</Link>
+                                </DropdownMenuItem>
+                                <DropdownMenuItem asChild>
+                                    <Link to="/buy" className={navItemClass}>Buy</Link>
+                                </DropdownMenuItem>
+                                <DropdownMenuItem asChild>
+                                    <Link to="/sell" className={navItemClass}>Sell</Link>
+                                </DropdownMenuItem>
                             </DropdownMenuContent>
                         </DropdownMenu>
 
@@ -50,16 +67,19 @@ const Navbar = () => {
                             <DropdownMenuTrigger className="flex items-center gap-1 hover:text-foreground outline-none">
                                 Departments <ChevronDown className="h-3 w-3" />
                             </DropdownMenuTrigger>
-                            <DropdownMenuContent>
-                                <DropdownMenuItem><Link to="/departments/modern-indian-art">Modern Indian Art</Link></DropdownMenuItem>
-                                <DropdownMenuItem><Link to="/departments/jewellery">Jewellery</Link></DropdownMenuItem>
-                                <DropdownMenuItem><Link to="/departments/timepieces">Timepieces</Link></DropdownMenuItem>
-                                <DropdownMenuItem><Link to="/departments/silver">Silver</Link></DropdownMenuItem>
-                                <DropdownMenuItem><Link to="/departments/furniture">Furniture</Link></DropdownMenuItem>
+                            <DropdownMenuContent className="min-w-[10rem]">
+                                <DropdownMenuItem asChild>
+                                    <Link to="/departments/modern-indian-art" className={navItemClass}>Modern Indian Art</Link>
+                                </DropdownMenuItem>
+                                <DropdownMenuItem asChild>
+                                    <Link to="/departments/jewellery" className={navItemClass}>Jewellery</Link>
+                                </DropdownMenuItem>
+                                <DropdownMenuItem asChild>
+                                    <Link to="/departments/timepieces" className={navItemClass}>Timepieces</Link>
+                                </DropdownMenuItem>
                             </DropdownMenuContent>
                         </DropdownMenu>
 
-                        <Link to="/services" className="transition-colors hover:text-foreground">Services</Link>
                         <Link to="/about" className="transition-colors hover:text-foreground">About Us</Link>
                     </nav>
                 </div>
@@ -76,9 +96,13 @@ const Navbar = () => {
                                 <User className="h-5 w-5" /> Login
                             </Button>
                         </DropdownMenuTrigger>
-                        <DropdownMenuContent align="end">
-                            <DropdownMenuItem><Link to="/login">Login</Link></DropdownMenuItem>
-                            <DropdownMenuItem><Link to="/signup">Signup</Link></DropdownMenuItem>
+                        <DropdownMenuContent align="end" className="min-w-[8rem]">
+                            <DropdownMenuItem asChild>
+                                <Link to="/login" className={navItemClass}>Login</Link>
+                            </DropdownMenuItem>
+                            <DropdownMenuItem asChild>
+                                <Link to="/signup" className={navItemClass}>Signup</Link>
+                            </DropdownMenuItem>
                         </DropdownMenuContent>
                     </DropdownMenu>
                 </div>
@@ -89,8 +113,9 @@ const Navbar = () => {
                 <div className="md:hidden border-t bg-background">
                     <nav className="container flex flex-col gap-4 py-8 text-lg font-medium">
                         <Link to="/auctions" onClick={() => setIsMenuOpen(false)}>Auctions</Link>
+                        <Link to="/buy" onClick={() => setIsMenuOpen(false)}>Buy</Link>
+                        <Link to="/sell" onClick={() => setIsMenuOpen(false)}>Sell</Link>
                         <Link to="/departments" onClick={() => setIsMenuOpen(false)}>Departments</Link>
-                        <Link to="/services" onClick={() => setIsMenuOpen(false)}>Services</Link>
                         <Link to="/about" onClick={() => setIsMenuOpen(false)}>About Us</Link>
                         <hr className="my-2 border-border" />
                         <Link to="/login" onClick={() => setIsMenuOpen(false)}>Login</Link>

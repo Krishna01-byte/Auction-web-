@@ -3,7 +3,6 @@ import { ArrowLeft, Clock, ShieldCheck, Truck, Gavel } from "lucide-react";
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
 import { Label } from "../components/ui/label";
-import { useAuctionStore } from "@/hooks/useAuctionStore";
 import { useState, useEffect } from "react";
 import { Badge } from "../components/ui/badge";
 import { MOCK_LOTS, MOCK_AUCTIONS } from "@/data";
@@ -189,7 +188,7 @@ const AuctionDetail = () => {
                     <div className="border-t border-stone-200 pt-8">
                         <h3 className="text-xl font-serif font-bold mb-4">Description</h3>
                         <div className="prose prose-stone text-muted-foreground">
-                            <p>{lot.description}</p>
+                            <p>{lot.description || "No description available for this lot."}</p>
                             <p className="mt-4">
                                 <strong>Auction Event:</strong> {auction.title} <br />
                                 <strong>End Date:</strong> {new Date(auction.endDate).toLocaleDateString()}

@@ -21,6 +21,7 @@ export interface Lot {
     year?: string;
     soldDate?: string;
     bids?: number;
+    description?: string;
 }
 
 export interface Blog {
