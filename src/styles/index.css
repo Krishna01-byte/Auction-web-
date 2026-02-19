@@ -1,0 +1,132 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Inter", sans-serif;
+}
+
+@layer base {
+  :root {
+    /* Ivory / Off-white background (#FAFAF8) -> HSL: 60 11% 98% */
+    --background: 60 11% 98%;
+    /* Charcoal black (#1E1E1E) -> HSL: 0 0% 12% */
+    --foreground: 0 0% 12%;
+
+    /* Charcoal black (#1E1E1E) */
+    --primary: 0 0% 12%;
+    --primary-foreground: 60 11% 98%;
+
+    /* Warm Gray (#6B6B6B) -> Used for secondary/muted contexts sometimes, 
+       but for backgrounds we might want something lighter. 
+       Let's use a very light warm gray for secondary background: #F0F0EE 
+       And #6B6B6B for muted text */
+    --secondary: 0 0% 92%;
+    /* #EBEBEB - slight grey */
+    --secondary-foreground: 0 0% 12%;
+
+    --muted: 60 5% 90%;
+    --muted-foreground: 0 0% 42%;
+    /* #6B6B6B */
+
+    /* Antique Gold (#B59A5A) -> HSL: 42 38% 53% */
+    --accent: 42 38% 53%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 85%;
+    /* Subtler border */
+    --input: 0 0% 85%;
+    --ring: 42 38% 53%;
+
+    --radius: 0.25rem;
+
+    /* Card & Popover for Light Mode */
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 12%;
+ 
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 12%;
+  }
+
+  .dark {
+    /* Keeping a dark mode if needed, but prioritizing the requested "Classic" light theme */
+    --background: 0 0% 12%;
+    --foreground: 60 11% 98%;
+
+    --primary: 60 11% 98%;
+    --primary-foreground: 0 0% 12%;
+
+    --secondary: 0 0% 18%;
+    --secondary-foreground: 60 11% 98%;
+
+    --muted: 0 0% 18%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 42 38% 53%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 42 38% 53%;
+
+    --card: 0 0% 12%;
+    --card-foreground: 60 11% 98%;
+
+    --popover: 0 0% 12%;
+    --popover-foreground: 60 11% 98%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif text-primary tracking-tight;
+  }
+}
+
+@layer utilities {
+  .container {
+    @apply mx-auto px-4 md:px-6 lg:px-8 max-w-7xl;
+  }
+}
